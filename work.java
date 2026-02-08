@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class SimpleCalculator extends JFrame implements ActionListener {
+class SimpleCalculator extends JFrame implements ActionListener {
 
     JTextField display;
     String expression = "";
@@ -14,13 +14,13 @@ public class SimpleCalculator extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // ช่องแสดงกระบวนการ
+        // Display field
         display = new JTextField();
         display.setEditable(false);
         display.setFont(new Font("Arial", Font.BOLD, 20));
         add(display, BorderLayout.NORTH);
 
-        // ปุ่มทั้งหมด
+        // All buttons
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5, 4, 5, 5));
 
@@ -43,7 +43,7 @@ public class SimpleCalculator extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-    // เมื่อกดปุ่ม
+    // Handle button clicks
     public void actionPerformed(ActionEvent e) {
 
         String cmd = e.getActionCommand();
@@ -68,7 +68,7 @@ public class SimpleCalculator extends JFrame implements ActionListener {
         }
     }
 
-    // ฟังก์ชันคำนวณ
+    // Calculate the expression
     public double calculate(String exp) {
 
         exp = exp.replace("%", "/100");
